@@ -1,7 +1,4 @@
-// 1. Given an array. Write a recursive function that removes the
-first element and returns the given array. (without using
-arr.unshift(),assign second element to first, third element to
-second...)
+// 1. Given an array. Write a recursive function that removes the first element and returns the given array. 
 
 let arr = [1,2,23,"3",6,5,4,7,9,9];
 let len = arr.length;
@@ -17,4 +14,29 @@ function removeFirst(arr,remArr = []){
     }
     
     
+}
+
+
+// 2.Given an array of nested arrays. Write a recursive function that flattens it. (Hint create function that concats arrays).
+
+
+let arr =[[1,5],3,[3,4,[1,2]],10,[11,12,13]];
+
+function arrFlat (arr, newArr =[]){
+	let tempArr = [];
+	//let newArr = [];
+	if (arr.length != 0){
+		if (Array.isArray(arr[0])){
+			tempArr = newArr.concat(arr[0])
+			arr.shift();
+			arr =tempArr.concat(arr)
+			return arrFlat(arr,newArr=[])
+			}else{
+				newArr.push(arr[0]);
+				arr.shift();
+				return arrFlat(arr,newArr)
+			}
+	}else{
+		return newArr;
+	}
 }
