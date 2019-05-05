@@ -1,1 +1,20 @@
+// 1. Given an array. Write a recursive function that removes the
+first element and returns the given array. (without using
+arr.unshift(),assign second element to first, third element to
+second...)
 
+let arr = [1,2,23,"3",6,5,4,7,9,9];
+let len = arr.length;
+
+function removeFirst(arr,remArr = []){
+    
+    if(remArr.length === len - 1 || len <= 1 ){
+        return remArr;
+    }else{
+        remArr.push(arr[1])
+        
+        return removeFirst(arr.slice(1),remArr);
+    }
+    
+    
+}
