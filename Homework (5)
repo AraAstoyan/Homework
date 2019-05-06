@@ -67,9 +67,27 @@ function calcSum(num,total = 0){
 
 
 
+//4. Given an array and a number N.  Write a recursive
+//function that rotates an array N places to the left. (Hint: to
+//add element to the beginning use arr.unshift())
 
+let arr = ["a","b","c","d","e","f","g","h"];
 
-
+function rotateArr(arr, n){
+    if (n === 0){
+        return arr;
+    }else if(n > 0){
+        let first  =arr.shift();
+        arr.push(first);
+        n--;
+        return rotateArr(arr,n )
+    }else{
+        let last = arr.pop();
+        arr.unshift(last);
+        n++;
+        return rotateArr(arr,n)
+    }
+}
 
 
 
