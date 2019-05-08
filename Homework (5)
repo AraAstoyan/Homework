@@ -91,10 +91,64 @@ function rotateArr(arr, n){
 
 
 
+//5. Given an object. Invert it (keys become values and values
+//become keys). If there is more than key for that given value
+//create an array.
 
 
 
+let obj = {
+    a : "1",
+    b : "2",
+    c : "1",
+    d : "2",
+    f : "3",
+    e : '2',
+    h : "2"
+}
+function invertObj (obj,newObj = {}){
+    for (let key in obj){
+         if(obj[key] in newObj){
+             let arr = [newObj[obj[key]]];
+             arr.push(key);
+            newObj[obj[key]] = arr;
+        }else{
+            newObj[obj[key]] = key;   
+        }     
+}
+ return newObj;   
+    
+}
 
 
 
+//6. Given the list of the following readers:
+
+let obj = [
+    {book : "Catcher in the rain", readStatus : true, percent :40},
+    {book : "Animal Farm", readStatus : true, percent :20},
+    {book : "Solaris", readStatus : false, percent : 90},
+    {book : "The Fail", readStatus : true, percent :50},
+    {book : "White Nights", readStatus : false, percent :60},
+    {book : "After Dark", readStatus : true, percent :70},
+];
+
+
+function book(obj){
+    let arr = [];
+    let min = 0;
+    for (let key in obj){
+        let tempObj =  obj[key];
+        
+        if (tempObj["readStatus"] == true ){
+            if (tempObj["percent"] > min){
+                arr.unshift(tempObj);
+                min = tempObj["percent"]
+            }else{
+                arr.push(tempObj)
+            }
+        }
+    }
+    return arr ;
+}
 
