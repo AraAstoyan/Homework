@@ -65,6 +65,18 @@ function acronym (str){
 //4.Given a string of digits, output all the contiguous substrings of length n in that string
 
 
+let numStr = "495215";
+
+
+function  contSubstr (numStr, n){
+    let res = [];
+    for(let  i = 0; i < numStr.length - n + 1 ; i++){
+        let temp = "";
+        temp = numStr.substr(i,n);
+        res.push(temp)
+    }
+    return res.join(",");  
+}
 
 
 
